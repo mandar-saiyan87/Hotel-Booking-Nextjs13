@@ -4,10 +4,8 @@ import dynamic from 'next/dynamic'
 import { useSearchParams, useRouter } from 'next/navigation';
 import { revalidatepath } from '@/components/Utils/revalidate';
 import Image from 'next/image';
-import 'react-calendar/dist/Calendar.css';
 import TimePicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
-import 'react-clock/dist/Clock.css';
 import Amenities from '@/components/account_components/Amenities';
 import AuthMsg from '@/components/messages/AuthMsg';
 import Cookies from 'js-cookie';
