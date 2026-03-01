@@ -28,7 +28,14 @@ const Place = async ({ params }) => {
   })
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    const errorText = await res.text()
+    console.error("Fetch failed:")
+    console.error("Status:", res.status)
+    console.error("Status Text:", res.statusText)
+    console.error("Response Body:", errorText)
+
+    throw new Error(`API Error: ${res.status} ${res.statusText}`)
+    // throw new Error('Failed to fetch data')
   }
 
   const data = await res.json()

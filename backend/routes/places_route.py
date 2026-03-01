@@ -56,9 +56,11 @@ def get_user_places():
 
 @places_routes.route('/api/places/getplace/<id>', methods=['GET'])
 def get_place_by_id(id):
-    placeID = ObjectId(id)
+
+    # placeID = ObjectId(id)
+
     try:
-        place = mongodb.places.find_one({'_id': placeID})
+        place = mongodb.places.find_one({'_id': id})
         if place:
             bookings = mongodb.bookings.find({'placeid': id})
             all_booking = []
