@@ -21,7 +21,10 @@ const HeroSection = async () => {
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-7'>
             {allPlaces?.map((place) => {
               return (
-                <Link href={`/place/${encodeURIComponent(place._id)}`} key={place._id}>
+                <Link href={{
+                  pathname: `/place/${encodeURIComponent(place.title)}`,
+                  query: { id: place._id }
+                }} key={place._id}>
                   {/* <Link href={`/place/${encodeURIComponent(place._id)}`} key={place._id}></Link> */}
                   <div className='w-full'>
                     <div className='w-full h-[250px] rounded-lg flex'>

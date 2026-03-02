@@ -18,11 +18,11 @@ import BookingWidget from '@/components/place_components/BookingWidget'
 // }
 
 
-const Place = async ({ params }) => {
+const Place = async ({ params, searchParams }) => {
 
-  const {placeid} = await params
+  const { id } = await searchParams
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SRV}/api/places/getplace/${placeid}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_SRV}/api/places/getplace/${id}`, {
     method: 'GET',
     cache: 'no-store'
   })
