@@ -75,6 +75,7 @@ def get_place_by_id(id):
         else:
             return {"status": 'Failed', "msg": "Place not found"}, 404
     except Exception as e:
+        print(str(e))
         return {"status": 'Error', "msg": "Somthing went wrong, please try again", "error": str(e)}
 
 

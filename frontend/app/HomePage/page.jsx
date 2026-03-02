@@ -22,6 +22,7 @@ const HeroSection = async () => {
             {allPlaces?.map((place) => {
               return (
                 <Link href={`/place/${encodeURIComponent(place._id)}`} key={place._id}>
+                  {/* <Link href={`/place/${encodeURIComponent(place._id)}`} key={place._id}></Link> */}
                   <div className='w-full'>
                     <div className='w-full h-[250px] rounded-lg flex'>
                       <Image src={place.photos[0].startsWith('/') ? `${process.env.NEXT_PUBLIC_API_SRV}${place.photos[0]}` : place.photos[0]} alt={place.photos[0]} width={900} height={900} className='w-full rounded-lg aspect-square' />

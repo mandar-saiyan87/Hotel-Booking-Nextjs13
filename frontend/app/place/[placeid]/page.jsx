@@ -20,7 +20,7 @@ import BookingWidget from '@/components/place_components/BookingWidget'
 
 const Place = async ({ params }) => {
 
-  const placeid = await params
+  const {placeid} = await params
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_SRV}/api/places/getplace/${placeid}`, {
     method: 'GET',
@@ -34,7 +34,7 @@ const Place = async ({ params }) => {
     console.error("Status Text:", res.statusText)
     console.error("Response Body:", errorText)
 
-    throw new Error(`API Error: ${res.status} ${res.statusText}`)
+    throw new Error(`API Error: ${res.status} ${res.statusText}\n ${errorText}`)
     // throw new Error('Failed to fetch data')
   }
 
