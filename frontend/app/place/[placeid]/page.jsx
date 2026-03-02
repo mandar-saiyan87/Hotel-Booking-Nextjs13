@@ -29,10 +29,10 @@ const Place = async ({ params }) => {
 
   if (!res.ok) {
     const errorText = await res.text()
-    console.error("Fetch failed:")
-    console.error("Status:", res.status)
-    console.error("Status Text:", res.statusText)
-    console.error("Response Body:", errorText)
+    // console.error("Fetch failed:")
+    // console.error("Status:", res.status)
+    // console.error("Status Text:", res.statusText)
+    // console.error("Response Body:", errorText)
 
     throw new Error(`API Error: ${res.status} ${res.statusText}\n ${errorText}`)
     // throw new Error('Failed to fetch data')
@@ -41,7 +41,6 @@ const Place = async ({ params }) => {
   const data = await res.json()
   const placeData = data.user_place
 
-  console.log(placeData)
 
 
 
