@@ -57,10 +57,11 @@ def get_user_places():
 @places_routes.route('/api/places/getplace/<id>', methods=['GET'])
 def get_place_by_id(id):
 
-    # placeID = ObjectId(id)
+    placeID = ObjectId(id)
 
     try:
-        place = mongodb.places.find_one({'_id': id})
+        place = mongodb.places.find_one({'_id': placeID})
+
         if place:
             bookings = mongodb.bookings.find({'placeid': id})
             all_booking = []
@@ -72,7 +73,7 @@ def get_place_by_id(id):
             place['_id'] = str(place['_id'])
             return {"status": 'Success', "msg": "Place found", "user_place": place}
         else:
-            return {"status": 'Failed', "msg": "Place not found"}
+            return {"status": 'Failed', "msg": "Place not found"}, 404
     except Exception as e:
         return {"status": 'Error', "msg": "Somthing went wrong, please try again", "error": str(e)}
 

@@ -41,6 +41,8 @@ const Place = async ({ params }) => {
   const data = await res.json()
   const placeData = data.user_place
 
+  console.log(placeData)
+
 
 
   const checkIn = new Date(placeData?.checkIn).toLocaleString('en-GB').split(',')[0]
